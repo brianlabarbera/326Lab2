@@ -1,28 +1,36 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
-float computeEx(float x, int n);
+float computeEx(float x, int n, int &count);
 
 int main() {
 
 	float x = 0;
-	int n = 0;
+	int n = 0, count = 0;
 
-	cout << "Enter your base number followed by the exponent:" << endl;
+	cout << "Enter your base number" << endl;
 	cin >> x;
+	cout << "Enter your exponent" << endl;
 	cin >> n;
 
-	computeEx(x, n);
+	cout << x << " raised to the power of " << n << " is " << computeEx(x, n, count) << endl;
+	
 
 	return 0;
 }
 
-float computeEx(float x, int n) {
+float computeEx(float x, int n, int &count) {
+ 
+	count++;
 
-	int count = 0;
-    
 	if (n == 1) {
+
+		cout << x << " was multiplied " << count << " times" << endl;
+
 		return x;
+	}
+
+	else {
+		return x * computeEx(x, n - 1, count);
 	}
 }
