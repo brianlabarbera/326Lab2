@@ -27,9 +27,9 @@ void Problem1() {
 }
 
 void Problem3() {
-	char source;
-	char destination;
-	char spare;
+	char source = 'A';
+	char destination = 'B';
+	char spare = 'C';
 	int n = 0;
 
 	std::cout << "Enter the number of discs:" << std::endl;
@@ -37,7 +37,7 @@ void Problem3() {
 
 	std::cout << "The sequence of moves involved in the Tower of Hanoi are:" << std::endl;
 
-	TowerofHanoi(source, destination, spare, n);
+	TowerofHanoi(source, spare, destination, n);
 }
 
 float computeEx(float x, int n, int &count) {
@@ -59,10 +59,14 @@ float computeEx(float x, int n, int &count) {
 void TowerofHanoi(char source, char destination, char spare, int n) {
 
 	if (n == 1) {
-		std::cout << "Move disk " << n << " from " << source << " to " << destination << std::endl;
+		std::cout << "Move disk " << n << " from rod " << source << " to rod " << destination << std::endl;
 	}
 
 	else {
+
+		TowerofHanoi(source, spare, destination, n - 1);
+
+		std::cout << "Move disk " << n << " from rod " << source << " to rod " << destination << std::endl;
 
 		TowerofHanoi(spare, destination, source, n - 1);
 	}
