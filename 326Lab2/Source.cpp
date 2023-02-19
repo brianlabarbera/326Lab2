@@ -4,15 +4,44 @@ float computeEx(float x, int n, int &count);
 void insertionSort(int* ptr, int n);
 void printArray(int* ptr, int n);
 void TowerofHanoi(char source, char destination, char spare, int n);
+void problemChoice();
 void Problem1();
 void Problem2();
 void Problem3();
 
 int main() {
 	
-	Problem2();
+	problemChoice();
 
 	return 0;
+}
+
+void problemChoice() { 
+
+	int choice = 0;
+
+	do {
+		std::cout << "Enter 1 to compute the exponent of a number" << std::endl;
+		std::cout << "or" << std::endl;
+		std::cout << "Enter 2 for insertion sort" << std::endl;
+		std::cout << "or" << std::endl;
+		std::cout << "Enter 3 for Tower of Hanoi" << std::endl;
+		std::cin >> choice;
+		std::cout << std::endl;
+
+		if (choice == 1) {
+			Problem1();
+		}
+
+		if (choice == 2) {
+			Problem2();
+		}
+
+		if (choice == 3) {
+			Problem3();
+		}
+
+	} while (choice != 1 && choice != 2 && choice != 3);
 }
 
 void Problem1() {
